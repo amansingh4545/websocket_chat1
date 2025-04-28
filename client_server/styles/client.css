@@ -1,0 +1,430 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8fafc;
+}
+
+.wel {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #8a83ff, #106cff);
+    color: white;
+    text-align: center;
+}
+
+#welcome h2 {
+    padding: 35px;
+    font-size: 29px;
+}
+
+.welcome input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    width: 350px;
+}
+
+.welcome button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: white;
+    color: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.welcome button:hover {
+    background: #38e457;
+    color: black;
+    border: 1px solid black;
+    border-style: outset;
+    box-shadow: 1px 1px 1px;
+    transform: scale(1.08);
+}
+
+/* *********************************************************************************** */
+
+.greet {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1e293b;
+    background-color: #aedeff;
+    border-left: 6px solid #2563eb;
+    margin: 10px auto 0px auto;
+    padding: 8px 20px;
+    border-radius: 0px 8px 8px 0px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    max-width: 30vw;
+}
+
+#chatContainer {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+#chat {
+    width: 85%;
+    height: 95%;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: white;
+}
+
+#chatBody {
+    display: flex;
+    flex: 1;
+    height: 100%;
+}
+
+#userPanel {
+    width: 30%;
+    background: linear-gradient(135deg, #8a83ff, #5a8bff, #106cff);
+    color: white;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#userPanel h2 {
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+    font-weight: bold;
+}
+
+#userPanel h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, #ff1fbc, #106cff);
+    border-radius: 2px;
+}
+
+#userList {
+    list-style: none;
+    padding: 0;
+}
+
+#userList li {
+    color: #1e293b;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #e0f2fe;
+    border-left: 6px solid #2563eb;
+    margin: 5px auto 0px auto;
+    padding: 8px 12px;
+    border-radius: 0px 8px 8px 0px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    max-width: 30vw;
+}
+
+.user-icon {
+    margin-right: 10px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+#chatPanel {
+    width: 70%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9fafb;
+}
+
+#messages {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#messages p {
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    background-color: #b0e9ff;
+    border: 1px solid #0091ff;
+    border-radius: 6px;
+    font-size: 15px;
+    border-right: 2px solid #0091ff;
+    border-bottom: 2px solid #0091ff;
+}
+
+.msg {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+    clear: both;
+}
+
+.msg.private {
+    background-color: #a3ffb7 !important;
+    border: 1px solid rgb(0, 210, 0) !important;
+    border-right: 2px solid rgb(0, 210, 0) !important;
+    border-bottom: 2px solid rgb(0, 210, 0) !important;
+}
+
+.msg.left {
+    align-self: flex-start;
+}
+
+.msg.right {
+    align-self: flex-end;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    max-width: 90%;
+}
+
+.message-sender {
+    font-size: 15px;
+    color: rgb(1, 1, 255);
+}
+
+.message-text {
+    font-size: 15px;
+    color: #111;
+}
+
+.message-text-wrapper {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.message-image {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 6px;
+}
+
+#inputArea {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+#inputArea .send-to-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    min-width: 117px;
+    min-height: 41.5px;
+}
+
+#inputArea .send-to-container button:hover {
+    background-color: #2779ff;
+}
+
+.file-label {
+    margin: 0 6px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.file-label img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    vertical-align: middle;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.file-label img:hover {
+    transform: scale(1.20) rotate(2deg);
+}
+
+#fileInput {
+    display: none;
+}
+
+.message-line {
+    margin-bottom: 6px;
+}
+
+.file-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #f0f0f0;
+    color: #000;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 6px;
+}
+
+.file-link .file-icon {
+    font-size: 18px;
+}
+
+.msg .file-link:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    box-shadow: 2px 2px 4px rgba(0, 102, 255, 0.3);
+}
+
+.msg.private .file-link:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    box-shadow: 4px 4px 6px rgba(0, 200, 0, 0.4) !important;
+}
+
+.send-to-container {
+    position: relative;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 1px);
+    right: 0;
+    width: 205px;
+    max-height: 350px;
+    overflow-y: auto;
+    transform: translateX(30%);
+    background-color: #e8f4ff; 
+    border: 1px solid #0b77d7; 
+    border-radius: 8px;
+    padding: 10px 6px 10px 8px;
+    min-width: 200px;
+}
+
+.send-to-container:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    padding: 8px 5px;
+    margin: 5px;
+    background-color: #b0e9ff; 
+    border: 1px solid #0091ff;
+    border-radius: 4px;
+    border-right: 2px solid #0091ff; 
+    border-bottom: 2px solid #0091ff; 
+}
+
+.dropdown-content label:hover {
+    transform: scale(1.04);
+}
+
+#userDropdown input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #1586ff;
+    cursor: pointer;
+}
+
+#userDropdown label:first-child {
+    margin-bottom: 5px;
+    color: #000;
+    border: none !important;
+    background-color: #e8f4ff;
+}
+
+#filePreview {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #f0f0f0;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    max-width: fit-content;
+    margin-bottom: 5px;
+}
+
+.cancel-icon {
+    margin-left: 5px;
+}
+
+.cancel-icon:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    font-weight: lighter;
+    box-shadow: 2px 2px 3px red;
+}
+
+
+/* For modern browsers */
+::-webkit-scrollbar {
+    width: 4px;
+    /* Half of default (typically 12px) */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

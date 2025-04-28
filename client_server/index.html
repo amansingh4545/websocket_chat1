@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Client</title>
+    <link rel="stylesheet" href="styles/client.css">
+    <link rel="icon" href="img/user_icon.png" type="image/png">
+</head>
+<body>
+
+    <div class="wel" id="wel">
+        <div id="welcome" class="welcome">
+            <h2>Welcome to Chat</h2>
+            <input type="text" id="nameInput" placeholder="Enter your Name" />
+            <br><br>
+            <button onclick="joinChat()">Join Chat</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="greet" id="greet">Welcome</div>
+
+    <div class="chatContainer" id="chatContainer">
+        <div id="chat">
+            <div id="chatBody">
+                <div id="userPanel">
+                    <h2>Active Users</h2>
+                    <ul id="userList"></ul>
+                </div>
+                <div id="chatPanel">
+                    <div id="messages"></div>
+                    <div>
+                        <div id="filePreview" style="display: none;">
+                            <span id="fileName"></span>
+                            <button class="cancel-icon" onclick="cancelFile()">❌</button>
+                        </div>
+                        <div id="inputArea">
+                            
+                            <input type="text" id="messageInput" placeholder="Type a message..." />
+                            
+                            <label for="fileInput" class="file-label" title="Send File">
+                                <img src="img/file_icon.png" alt="file_icon" />
+                            </label>
+
+                            <input type="file" id="fileInput" style="display: none;" />
+
+                            <div id="send-to-container" class="send-to-container">
+                                <button id="sendToBtn" onclick="sendMessage()">Send To ⮝</button>
+                                <div id="userDropdown" class="dropdown-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/client.js"></script>
+</body>
+</html>

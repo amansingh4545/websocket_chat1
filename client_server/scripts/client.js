@@ -165,11 +165,13 @@ function joinChat() {
                         ul.appendChild(li);
                     }
                 });
+                
+                const dropdown = document.getElementById("userDropdown");
+                dropdown.innerHTML = "";
+
                 if (data.users.length == 1 && data.users[0] === Name){
                     return
                 }
-                const dropdown = document.getElementById("userDropdown");
-                dropdown.innerHTML = "";
     
                 const selectAllLabel = document.createElement("label");
                 selectAllLabel.style.display = "block";

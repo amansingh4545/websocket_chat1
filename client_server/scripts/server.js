@@ -1,6 +1,6 @@
 document.getElementById("chatContainer").style.display = "flex";
 document.getElementById("greet").style.display = "flex";
-const socket = new WebSocket("ws://localhost:12345/monitor");
+const socket = new WebSocket("wss://websocket-server-rmk8.onrender.com/monitor");
 
 socket.onmessage = event => {
     let data;
